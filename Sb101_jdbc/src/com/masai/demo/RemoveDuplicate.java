@@ -1,5 +1,6 @@
 package com.masai.demo;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,9 +13,9 @@ public class RemoveDuplicate {
 		// TODO Auto-generated method stub
 		int arr[] = { 8, 9, 9, 4, 89, 2, -9 };
 		int n = arr.length;
-		Set<Integer> aIntegers = remove(arr, n);
-		System.out.println(aIntegers);
-
+//		Set<Integer> aIntegers = remove(arr, n);
+//		System.out.println(aIntegers);
+		remDup(arr, n);
 	}
 
 	private static Set<Integer> remove(int[] arr, int n) {
@@ -24,5 +25,21 @@ public class RemoveDuplicate {
 			unique.add(arr[i]);
 		}
 		return unique;
+	}
+
+	public static void remDup(int[] arr, int n) {
+		int count = 0;
+		Arrays.sort(arr);
+		;
+		int[] array = new int[n];
+		for (int i = 0; i < n - 1; i++) {
+			if (arr[i] != arr[i + 1]) {
+				array[count] = arr[i];
+				System.out.println(array[count]);
+				count++;
+			}
+
+		}
+		arr[count] = arr.length - 1;
 	}
 }
