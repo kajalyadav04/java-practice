@@ -23,7 +23,7 @@ public class RemoveDuplicate {
 		// TODO Auto-generated method stub
 		int count = 0;
 		int[] array = new int[n];
-		boolean d ;
+		boolean d;
 		for (int i = 0; i < n; i++) {
 			d = false;
 			for (int k = 0; k < count; k++) {
