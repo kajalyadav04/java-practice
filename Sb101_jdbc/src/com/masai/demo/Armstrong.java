@@ -2,7 +2,7 @@ package com.masai.demo;
 
 import java.util.Scanner;
 
-import com.mysql.cj.QueryReturnType;
+
 
 public class Armstrong {
 
@@ -10,12 +10,8 @@ public class Armstrong {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		if (n == armstrong(n)) {
-			System.out.println("yes");
-		} else {
-			System.out.println("No");
+		System.out.println(armstrong(n));
 
-		}
 	}
 
 	public static int order(int n) {
@@ -27,9 +23,9 @@ public class Armstrong {
 		return count;
 	}
 
-	private static double armstrong(int n) {
+	private static boolean armstrong(int n) {
 		// TODO Auto-generated method stub
-
+        int l = n;
 		int k = order(n);
 		double arm = 0.0;
 		while (n > 0) {
@@ -39,7 +35,12 @@ public class Armstrong {
 			n = n / 10;
 		}
 //		System.out.println(arm);
-		return arm;
+		if (l == arm) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 }
