@@ -21,7 +21,7 @@ public class SimpleInterest {
 
 			double getInterestAmount(){
 			    //write code to computer and return the interest amount rounded to two decimal places
-				value=pa*tp*ir;
+				value=pa*tp*ir/100;
 				value=(Math.round(value*100))/100.0;
 				return value;
 			}
