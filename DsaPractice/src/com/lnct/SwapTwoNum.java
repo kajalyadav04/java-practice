@@ -7,6 +7,7 @@ public class SwapTwoNum {
 		int n = 89;
 		int m = 72;
 		swapByTemp(n, m);
+		swapWithoutUsingTempVar(n,m);
 
 	}
 
@@ -15,7 +16,15 @@ public class SwapTwoNum {
 		int temp = n;
 		n = m;
 		m = temp;
-		System.out.println("n: " + n + "m: " + m);
+		System.out.println("n: " + n + " m: " + m);
+	}
+	public static void swapWithoutUsingTempVar(int a, int b) {
+		a=a+b;
+		b=a-b;
+		a=a-b;
+		System.out.println("a: " + a + " b: " + b);
+		}
+		
 	}
 
-}
+
