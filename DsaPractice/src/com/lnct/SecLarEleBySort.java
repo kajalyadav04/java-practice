@@ -10,6 +10,8 @@ public class SecLarEleBySort {
 		int[] arr = { 5, 8, 65, 78, 98 };
 		int result = SecLarEleBySort(arr);
 		System.out.println(result);
+		int res = secLarEleBySortFn(arr);
+		System.out.println(res);
 	}
 
 	private static int SecLarEleBySort(int[] arr) {
@@ -33,6 +35,19 @@ public class SecLarEleBySort {
 
 		}
 		return -1;
+	}
+
+	public static int secLarEleBySortFn(int[] arr) {
+		Arrays.sort(arr);
+		int n = arr.length;
+		for (int i = n - 1; i > 0; i++) {
+			if (arr[i] != arr[i - 1]) {
+				return arr[i - 1];
+			}
+		}
+
+		return -1;
+
 	}
 
 }
