@@ -4,14 +4,16 @@ public class Check_String_Empty {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String string = "ijk";
+		String string = " ";
 //		boolean k= check_String_Empty(string);
 //		System.out.println(k);
-		boolean l = isEmptyUsingCharAt(string);
-		System.out.println(l);
-		boolean p=check_String_Empty_isEmptyFn(string);
-		System.out.println(p);
+//		boolean l = isEmptyUsingCharAt(string);
+//		System.out.println(l);
+//		boolean p=check_String_Empty_isEmptyFn(string);
+//		System.out.println(p);
 		check_String_Empty_isEmptyFn(string);
+		boolean kString=string_Empty(string);
+		System.out.println(kString);
 
 	}
 	
@@ -33,6 +35,16 @@ public class Check_String_Empty {
 			return true;
 		}
 		return false;
+	}
+	private static boolean string_Empty(String str) {
+		// TODO Auto-generated method stub
+		str = str.replaceAll("\\s", "");
+		
+
+		for (int i=0;i<str.length();i++) {
+			return false;
+		}
+		return true;
 	}
 
 	private static boolean check_String_Empty(String str) {
