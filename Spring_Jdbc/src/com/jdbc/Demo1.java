@@ -1,31 +1,26 @@
-
 package com.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
-public class Demo {
+public class Demo1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("gmarks");
-		int gmarks = scanner.nextInt();
-		System.out.println("roll no");
-		int roll=scanner.nextInt();
-		int n;
+		System.out.println("roll no to be deleted24");
+		int roll = scanner.nextInt();
 
 		String urlString = "jdbc:mysql://localhost:3306/jdbcdb";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(urlString, "root", "root");
-			PreparedStatement s = connection.prepareStatement("update student set marks=marks+? where marks<9500");
+			PreparedStatement s = connection.prepareStatement("delete from student where roll=? ");
 
-			s.setInt(1, gmarks);
+			s.setInt(1, roll);
 
 //						Statement s = connection.createStatement();
 //						String staString = "insert into student values(" + age + ",'" + name + "','" + addreString + "',"
@@ -34,7 +29,7 @@ public class Demo {
 //						System.out.println(staString);
 			int rows = s.executeUpdate();
 			if (rows > 0) {
-				System.out.println("rows affected succesfully");
+				System.out.println("rows deleted succesfully");
 			} else {
 				System.out.println("rows remain unaffected");
 			}
@@ -48,7 +43,6 @@ public class Demo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }
