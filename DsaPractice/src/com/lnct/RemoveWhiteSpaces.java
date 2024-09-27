@@ -6,6 +6,7 @@ public class RemoveWhiteSpaces {
 		// TODO Auto-generated method stub
       String string=" remove white spaces";
       System.out.println(removeWhiteSpaces(string));
+      remove_Spaces_Using_Inbuild(string);
 	}
 
 	private static String removeWhiteSpaces(String str) {
@@ -18,6 +19,10 @@ public class RemoveWhiteSpaces {
 			}
 		}
 		return emp;
+	}
+	public static void remove_Spaces_Using_Inbuild(String str) {
+		String str1 =str.replaceAll("\\s", "");
+		System.out.println(str1);
 	}
 
 }
