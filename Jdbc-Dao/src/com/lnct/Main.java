@@ -15,7 +15,7 @@ public class Main {
 
 		do {
 			System.out.println("Enter Your Preferences, What do you want ," + "\n" + "Press '1' -_-_-> To Insert Student"
-					+ "\n" + "Press '2' -_-_-> To update record of student ," + "\n" + "Press '3' -_-_-> For Faculty SignUp ,"
+					+ "\n" + "Press '2' -_-_-> To update record of student ," + "\n" + "Press '3' -_-_-> To update record of student ,"
 					+ "\n" + "Press '0' -_-_-> For Existing the System. " + "\n");
 			option = scanner.nextInt();
 
@@ -28,6 +28,8 @@ public class Main {
 			case 2:
 				updateStudent(scanner);
 				break;
+			case 3:
+				deleteStudent(scanner);
 			case 0:
 				System.out.println("exit");
 				break;
@@ -36,6 +38,15 @@ public class Main {
 
 			}
 		} while (option != 0);
+	}
+
+	private static void deleteStudent(Scanner scanner) {
+		// TODO Auto-generated method stub
+		StudentService service = new StudentService();
+		System.out.println("enter roll");
+		int roll = scanner.nextInt();
+		service.deleteStudentRecord(roll);
+		
 	}
 
 	private static void updateStudent(Scanner scanner) {

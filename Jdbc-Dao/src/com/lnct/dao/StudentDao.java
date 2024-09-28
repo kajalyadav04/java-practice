@@ -86,4 +86,32 @@ public class StudentDao {
 
 	}
 
+	public void deleteStudentInfo(int roll) {
+		// TODO Auto-generated method stub
+		String queryString="DELETE  FROM student WHERE roll=?";
+		try {
+			connection=getConnection();
+			preparedStatement=connection.prepareStatement(queryString);
+			preparedStatement.setInt(1, roll);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(preparedStatement!=null) {
+					preparedStatement.close();
+				}
+				if(connection!=null) {
+					connection.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+
 }

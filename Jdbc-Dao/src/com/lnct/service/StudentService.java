@@ -15,6 +15,11 @@ public class StudentService {
 		studentDao.updateStudentInfo(roll,name);
 		
 	}
+	public void deleteStudentRecord(int roll) {
+		// TODO Auto-generated method stub
+		studentDao.deleteStudentInfo(roll);
+		
+	}
 	
 	
 
