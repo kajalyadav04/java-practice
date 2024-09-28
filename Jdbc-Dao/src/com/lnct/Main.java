@@ -14,9 +14,19 @@ public class Main {
 		int option = 0;
 
 		do {
-			System.out.println("Enter Your Preferences, What do you want ," + "\n" + "Press '1' -_-_-> To Insert Student"
-					+ "\n" + "Press '2' -_-_-> To update record of student ," + "\n" + "Press '3' -_-_-> To update record of student ,"
-					+ "\n" + "Press '0' -_-_-> For Existing the System. " + "\n");
+			System.out.println("Enter Your Preferences, What do you want ,"
+							+ "\n"
+					+ "Press '1' -_-_-> To Insert Student" 
+							+ "\n" + 
+					"Press '2' -_-_-> To update record of student ,"
+							+ "\n" + 
+					"Press '3' -_-_-> To delete a record of student ,"
+							+ "\n"
+					+ "Press '4' -_-_-> To fetch  record of all students ,"
+							+ "\n"
+					+ "Press '5' -_-_-> To fetch record of student by roll no ," 
+							+ "\n"
+					+ "Press '0' -_-_-> For Existing the System. " + "\n");
 			option = scanner.nextInt();
 
 			switch (option) {
@@ -30,6 +40,10 @@ public class Main {
 				break;
 			case 3:
 				deleteStudent(scanner);
+				break;
+			case 4:
+				fetchAllStudents(scanner);
+				break;
 			case 0:
 				System.out.println("exit");
 				break;
@@ -40,13 +54,21 @@ public class Main {
 		} while (option != 0);
 	}
 
+	private static void fetchAllStudents(Scanner scanner) {
+		// TODO Auto-generated method stub
+		StudentService service = new StudentService();
+		service.fetchAllStudentsRecord();
+		
+		
+	}
+
 	private static void deleteStudent(Scanner scanner) {
 		// TODO Auto-generated method stub
 		StudentService service = new StudentService();
 		System.out.println("enter roll");
 		int roll = scanner.nextInt();
 		service.deleteStudentRecord(roll);
-		
+
 	}
 
 	private static void updateStudent(Scanner scanner) {
@@ -56,8 +78,8 @@ public class Main {
 		int roll = scanner.nextInt();
 		System.out.println("enter name");
 		String name = scanner.next();
-		service.updateStudentData(roll,name);
-		
+		service.updateStudentData(roll, name);
+
 	}
 
 	private static void insertStudent(Scanner scanner) {
@@ -74,7 +96,7 @@ public class Main {
 		int mobile = scanner.nextInt();
 		System.out.println("enter marks");
 		int marks = scanner.nextInt();
-		StudentBean studentBean=new StudentBean(roll, name, address, mobile, marks);
+		StudentBean studentBean = new StudentBean(roll, name, address, mobile, marks);
 		service.insertData(studentBean);
 
 	}

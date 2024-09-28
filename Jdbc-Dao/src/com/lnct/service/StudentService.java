@@ -20,6 +20,11 @@ public class StudentService {
 		studentDao.deleteStudentInfo(roll);
 		
 	}
+	public void fetchAllStudentsRecord() {
+		// TODO Auto-generated method stub
+		studentDao.fetchAllStudentsInfo();
+		
+	}
 	
 	
 

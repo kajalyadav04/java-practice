@@ -114,4 +114,38 @@ public class StudentDao {
 		
 	}
 
+	public void fetchAllStudentsInfo() {
+		// TODO Auto-generated method stub
+		String queryString = "SELECT * FROM student";
+		try {
+			connection=getConnection();
+			preparedStatement=connection.prepareStatement(queryString);
+			ResultSet executeResultSet=preparedStatement.executeQuery();
+			while (executeResultSet.next()) {
+				System.out.println(
+						"roll : "+executeResultSet.getInt("ROLL")+", name : "+executeResultSet.getString("name") +
+						", address : "+executeResultSet.getString("address")+", mobile : "+executeResultSet.getInt("mobile") + 
+						", marks: " + executeResultSet.getInt("marks")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(preparedStatement!=null) {
+					preparedStatement.close();
+				}
+				if(connection!=null) {
+					connection.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+
 }
