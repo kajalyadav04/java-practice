@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	String driverclassName = "com.mySql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/student";
+	String driverclassName = "com.mysql.cj.jdbc.Driver";
+	String url = "jdbc:mysql://localhost:3306/jdbcdb";
 	String userName = "root";
 	String password = "root";
 	public static ConnectionFactory connectionFactory = null;
@@ -17,7 +17,6 @@ public class ConnectionFactory {
 
 		try {
 			Class.forName(driverclassName);
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
