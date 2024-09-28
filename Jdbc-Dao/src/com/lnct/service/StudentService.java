@@ -25,6 +25,11 @@ public class StudentService {
 		studentDao.fetchAllStudentsInfo();
 		
 	}
+	public void fetchIndividualStudentRecord(int roll) {
+		// TODO Auto-generated method stub
+		studentDao.fetchIndividualStudentData(roll);
+		
+	}
 	
 	
 

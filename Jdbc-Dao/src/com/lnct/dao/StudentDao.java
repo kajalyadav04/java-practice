@@ -61,7 +61,7 @@ public class StudentDao {
 		try {
 			connection = getConnection();
 			preparedStatement = connection.prepareStatement(queryString);
-			
+
 			preparedStatement.setString(1, name);
 			preparedStatement.setInt(2, roll);
 			preparedStatement.executeUpdate();
@@ -88,22 +88,21 @@ public class StudentDao {
 
 	public void deleteStudentInfo(int roll) {
 		// TODO Auto-generated method stub
-		String queryString="DELETE  FROM student WHERE roll=?";
+		String queryString = "DELETE  FROM student WHERE roll=?";
 		try {
-			connection=getConnection();
-			preparedStatement=connection.prepareStatement(queryString);
+			connection = getConnection();
+			preparedStatement = connection.prepareStatement(queryString);
 			preparedStatement.setInt(1, roll);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
-				if(preparedStatement!=null) {
+				if (preparedStatement != null) {
 					preparedStatement.close();
 				}
-				if(connection!=null) {
+				if (connection != null) {
 					connection.close();
 				}
 			} catch (Exception e2) {
@@ -111,33 +110,32 @@ public class StudentDao {
 				e2.printStackTrace();
 			}
 		}
-		
+
 	}
 
 	public void fetchAllStudentsInfo() {
 		// TODO Auto-generated method stub
 		String queryString = "SELECT * FROM student";
 		try {
-			connection=getConnection();
-			preparedStatement=connection.prepareStatement(queryString);
-			ResultSet executeResultSet=preparedStatement.executeQuery();
+			connection = getConnection();
+			preparedStatement = connection.prepareStatement(queryString);
+			
+			ResultSet executeResultSet = preparedStatement.executeQuery();
 			while (executeResultSet.next()) {
 				System.out.println(
-						"roll : "+executeResultSet.getInt("ROLL")+", name : "+executeResultSet.getString("name") +
-						", address : "+executeResultSet.getString("address")+", mobile : "+executeResultSet.getInt("mobile") + 
-						", marks: " + executeResultSet.getInt("marks")
-						);
+						"roll : " + executeResultSet.getInt("ROLL") + ", name : " + executeResultSet.getString("name")
+								+ ", address : " + executeResultSet.getString("address") + ", mobile : "
+								+ executeResultSet.getInt("mobile") + ", marks: " + executeResultSet.getInt("marks"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
-				if(preparedStatement!=null) {
+				if (preparedStatement != null) {
 					preparedStatement.close();
 				}
-				if(connection!=null) {
+				if (connection != null) {
 					connection.close();
 				}
 			} catch (Exception e2) {
@@ -145,7 +143,42 @@ public class StudentDao {
 				e2.printStackTrace();
 			}
 		}
-		
+
+	}
+
+	public void fetchIndividualStudentData(int roll) {
+		// TODO Auto-generated method stub
+		String queryString = "SELECT * FROM student WHERE roll=?";
+		try {
+			connection = getConnection();
+			preparedStatement = connection.prepareStatement(queryString);
+			preparedStatement.setInt(1, roll);
+			
+			ResultSet executeResultSet = preparedStatement.executeQuery();
+			while (executeResultSet.next()) {
+				System.out.println(
+						"roll : " + executeResultSet.getInt("ROLL") + ", name : " + executeResultSet.getString("name")
+								+ ", address : " + executeResultSet.getString("address") + ", mobile : "
+								+ executeResultSet.getInt("mobile") + ", marks: " + executeResultSet.getInt("marks"));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       finally {
+		try {
+			if(preparedStatement!=null) {
+				preparedStatement.close();
+			}
+			if(connection!=null) {
+				connection.close();
+			}
+		} catch (Exception e2) {
+			// TODO: handle exception
+			e2.printStackTrace();
+		}
+	}
 	}
 
 }

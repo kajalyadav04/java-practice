@@ -44,6 +44,8 @@ public class Main {
 			case 4:
 				fetchAllStudents(scanner);
 				break;
+			case 5:
+				fetchRecordIndividuals(scanner);
 			case 0:
 				System.out.println("exit");
 				break;
@@ -52,6 +54,16 @@ public class Main {
 
 			}
 		} while (option != 0);
+	}
+
+	private static void fetchRecordIndividuals(Scanner scanner) {
+		// TODO Auto-generated method stub
+		StudentService service = new StudentService();
+		System.out.println("enter roll");
+		int roll = scanner.nextInt();
+		service.fetchIndividualStudentRecord(roll);
+		
+		
 	}
 
 	private static void fetchAllStudents(Scanner scanner) {
