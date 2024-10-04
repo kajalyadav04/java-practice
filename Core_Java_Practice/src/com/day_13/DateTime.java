@@ -12,11 +12,17 @@ public class DateTime {
 		System.out.println("Enter Date of birth in dd-MM-yyyy pattern");
 		String dobString=scanner.next();
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		LocalDate lDate=LocalDate.parse(dobString, dateTimeFormatter);
-		System.out.println(lDate);
-		DateTimeFormatter dayDateTimeFormatter= DateTimeFormatter.ofPattern("EEEE");
-		String ldateString = lDate.format(dayDateTimeFormatter);
+		try {
+			
+			LocalDate lDate=LocalDate.parse(dobString, dateTimeFormatter);
+			System.out.println(lDate);
+			DateTimeFormatter dayDateTimeFormatter= DateTimeFormatter.ofPattern("EEEE");
+			String ldateString = lDate.format(dayDateTimeFormatter);
 			System.out.println(ldateString);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("please provide correct date time format");
+		}
 		
 
 	}
