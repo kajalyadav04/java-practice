@@ -1,5 +1,7 @@
 package com.lnct;
 
+import java.util.Scanner;
+
 import javax.swing.border.EtchedBorder;
 
 import jakarta.persistence.EntityManager;
@@ -22,9 +24,45 @@ public class App {
 		// System.out.println( "Hello World!" );
 //		EntityManagerFactory emf = Persistence.createEntityManagerFactory("book_connection");
 //		EntityManager eManager = emf.createEntityManager();
-		searchStudentRecord(1);
-		saveStudentRecord();
+//		searchStudentRecord(1);
+//		saveStudentRecord();
+		Scanner scanner= new Scanner(System.in);
+		System.out.println("enter roll which you want to delete");
+		int roll=scanner.nextInt();
+		
+    	deleteRecord(roll);
 
+	}
+//
+	private static void deleteRecord(int roll) {
+		// TODO Auto-generated method stub
+		EntityTransaction et=null;
+		EntityManager em=emf.createEntityManager();
+		Student student=em.find(Student.class, roll);
+		if(student!=null) {
+			
+			try {
+				et=em.getTransaction();
+				et.begin();
+				em.remove(student);
+				et.commit();
+			} catch (Exception e) {
+				// TODO: handle exception
+				et.rollback();
+				e.printStackTrace();
+			}
+			
+			finally {
+				em.close();
+			}
+			
+		}
+		else {
+			System.out.println("student record notfound");
+		}
+		
+		
+		
 	}
 
 	private static void saveStudentRecord() {
@@ -34,7 +72,7 @@ public class App {
 		try {
 
 			em = emf.createEntityManager();
-			Student student = new Student(6, "kay", "jh", "45", 890);
+			Student student = new Student(7, "a", "jh", "45", 890);
 			et = em.getTransaction();
 			et.begin();
 			em.persist(student);
@@ -63,4 +101,5 @@ public class App {
 		eManager.close();
 
 	}
+	
 }
