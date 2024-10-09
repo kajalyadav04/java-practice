@@ -26,23 +26,58 @@ public class App {
 //		EntityManager eManager = emf.createEntityManager();
 //		searchStudentRecord(1);
 //		saveStudentRecord();
-		Scanner scanner= new Scanner(System.in);
-		System.out.println("enter roll which you want to delete");
-		int roll=scanner.nextInt();
-		
-    	deleteRecord(roll);
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("enter roll which you want to update");
+		int roll = scanner.nextInt();
+//		
+//    	deleteRecord(roll);
+		updateRecord(scanner,roll);
 
 	}
+
+	private static void updateRecord(Scanner sc, int roll) {
+		// TODO Auto-generated method stub
+		EntityTransaction eTransaction = null;
+		EntityManager em = emf.createEntityManager();
+		Student s = em.find(Student.class, roll);
+		
+		if(s!=null) {
+			try {
+				System.out.println("Enter the grace marks");
+				int gracemarks=sc.nextInt();
+				
+				eTransaction = em.getTransaction();
+				eTransaction.begin();
+				s.setMarks(s.getMarks()+gracemarks);
+				eTransaction.commit();
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			    eTransaction.rollback();
+				e.printStackTrace();
+			}
+			finally {
+				em.close();
+			}
+		}
+		else {
+			System.out.println("Student does not exist..");
+		
+		}
+
+	}
+
 //
 	private static void deleteRecord(int roll) {
 		// TODO Auto-generated method stub
-		EntityTransaction et=null;
-		EntityManager em=emf.createEntityManager();
-		Student student=em.find(Student.class, roll);
-		if(student!=null) {
-			
+		EntityTransaction et = null;
+		EntityManager em = emf.createEntityManager();
+		Student student = em.find(Student.class, roll);
+		if (student != null) {
+
 			try {
-				et=em.getTransaction();
+				et = em.getTransaction();
 				et.begin();
 				em.remove(student);
 				et.commit();
@@ -51,24 +86,21 @@ public class App {
 				et.rollback();
 				e.printStackTrace();
 			}
-			
+
 			finally {
 				em.close();
 			}
-			
-		}
-		else {
+
+		} else {
 			System.out.println("student record notfound");
 		}
-		
-		
-		
+
 	}
 
 	private static void saveStudentRecord() {
 		// TODO Auto-generated method stub
-		EntityTransaction et=null;
-		EntityManager em=null;
+		EntityTransaction et = null;
+		EntityManager em = null;
 		try {
 
 			em = emf.createEntityManager();
@@ -101,5 +133,5 @@ public class App {
 		eManager.close();
 
 	}
-	
+
 }
