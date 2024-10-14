@@ -8,7 +8,7 @@ public interface StudentService {
 	public Student getStudentById(int id);
 	public List<Student> getAllStudent();
 	public Student createStudent(Student student);
-	public Student deleteStudent(int id);
+	public void deleteStudent(int id);
 	
 	
 
