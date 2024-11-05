@@ -12,7 +12,7 @@ public class PrimeConstruction {
 //
 //		int n = sc.nextInt();
 //		int m = n + 1;
-		int[] arr = { 3, 4, 5, 1 };
+		int[] arr = { 3, 4, 5, 2 };
 
 //		for (int k = 0; k < n; k++) {
 //			arr[k] = sc.nextInt();
@@ -29,11 +29,12 @@ public class PrimeConstruction {
 
 		// TODO Auto-generated method stub
 		int k = minimum(arr);
-		System.out.println(k);
+//		System.out.println(k);
 		int j = 0;
+		int count = 0;
 
-		for (j = k; j < 100; j++) {
-			int count = 0;
+		for (j = k+1; j < 100; j++) {
+			 count = 0;
 			for (int i = 0; i < arr.length; i++) {
 				if (arr[i] == k) {
 					continue;
@@ -45,13 +46,21 @@ public class PrimeConstruction {
 //						System.out.println("arr[i]" + arr[i]);
 					}
 				}
+				
 			}
+			if (count == arr.length - 1) {
+				break;
+			}
+		}
 			if (count == arr.length - 1) {
 				System.out.println(j);
 				return;
 			}
+			else {
+				System.out.println("none");
+			}
 
-		}
+		
 
 	}
 
