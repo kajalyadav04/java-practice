@@ -11,7 +11,7 @@ public class Demo1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("roll no to be deleted24");
+		System.out.println("roll no to be deleted");
 		int roll = scanner.nextInt();
 
 		String urlString = "jdbc:mysql://localhost:3306/jdbcdb";

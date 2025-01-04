@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="d1" class="com.app.demo.Demo" autowire="constructor" init-method="init" />
+	
+
+	<bean id="a1" class="com.app.demo.A"/>
+
+	<bean id="a2" class="com.app.demo.A" />
+
+	<bean id="b5" class="com.app.demo.B" />
+
+</beans>
