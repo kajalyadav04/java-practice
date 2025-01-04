@@ -13,6 +13,10 @@ public class Demo {
 	public Demo() {
 		System.out.println("inside zero argument constructor..");
 	}
+	public void destroy() {
+		System.out.println("diistroy d");
+	}
+
 
 	public Demo(B b1, A a1) {
 

@@ -3,13 +3,19 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="d1" class="com.app.demo.Demo" autowire="constructor" init-method="init" />
-	
+	<bean 
+		id="d1" 
+		class="com.app.demo.Demo" 
+		autowire="constructor" 
+		init-method="init"
+		destroy-method="destroy" 
+		lazy-init="true" 
+		scope="prototype" />
 
-	<bean id="a1" class="com.app.demo.A"/>
+	<bean id="a1" class="com.app.demo.A" destroy-method="destroy" lazy-init="true"/>
 
-	<bean id="a2" class="com.app.demo.A" />
+	<bean id="a2" class="com.app.demo.A" destroy-method="destroy" lazy-init="true"/>
 
-	<bean id="b5" class="com.app.demo.B" />
+	<bean id="b5" class="com.app.demo.B" destroy-method="destroy" lazy-init="true"/>
 
 </beans>
